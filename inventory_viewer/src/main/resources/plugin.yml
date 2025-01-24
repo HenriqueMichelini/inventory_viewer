@@ -1,0 +1,10 @@
+name: inventory_viewer
+version: '1.0-SNAPSHOT'
+main: io.github.HenriqueMichelini.inventory_viewer.Inventory_viewer
+api-version: '1.21'
+commands:
+  inventoryviewer:
+    description: Opens the inventory viewer GUI.
+    usage: /inventoryviewer
+    permission: inventoryviewer.use
+    permission-message: You do not have permission to use this command.
