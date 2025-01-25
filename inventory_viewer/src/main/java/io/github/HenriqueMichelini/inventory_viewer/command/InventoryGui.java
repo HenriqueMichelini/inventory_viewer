@@ -15,8 +15,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Objects;
 
-import static org.apache.logging.log4j.LogManager.getLogger;
-
 public class InventoryGui {
 
     private final Gui gui;
@@ -29,14 +27,12 @@ public class InventoryGui {
         // Initialize the GUI with the title "Inventory Viewer"
         gui = Gui.gui()
                 .title(Component.text(targetPlayer.getName() + "'s Inventory"))
-                .rows(6) // 6 rows (max slots: 54)
-                .disableAllInteractions() // Prevent modifications in the GUI
+                .rows(6)
+                .disableAllInteractions()
                 .create();
 
-        // Populate the GUI with the player's inventory items initially
         populateGui();
 
-        // Start the periodic update task
         startUpdating();
     }
 
@@ -57,8 +53,8 @@ public class InventoryGui {
             }
 
             int playerHealthAmount = Math.max(1, (int) targetPlayer.getHealth()); // Prevent zero health
-            int playerFoodLevelAmount = Math.max(1, targetPlayer.getFoodLevel()); // Prevent zero food level
-            int playerLevelAmount = Math.max(1, targetPlayer.getLevel()); // Prevent zero level
+            int playerFoodLevelAmount = Math.max(1, targetPlayer.getFoodLevel());
+            int playerLevelAmount = Math.max(1, targetPlayer.getLevel());
             String playerName = targetPlayer.getName();
 
             ItemStack healthItem = new ItemStack(Material.ENCHANTED_GOLDEN_APPLE, playerHealthAmount);
@@ -82,7 +78,6 @@ public class InventoryGui {
             GuiItem level = new GuiItem(levelItem);
             gui.setItem(44, level);
 
-            // Refresh the GUI after populating
             gui.update();
         } catch (Exception e) {
             Bukkit.getLogger().warning("Error in populateGui: " + e.getMessage());
@@ -101,13 +96,13 @@ public class InventoryGui {
                 // Check if the player is online and the GUI is still open
                 if (!targetPlayer.isOnline() || !isGuiOpen) {
                     this.cancel();
-                    Bukkit.getLogger().info("Task canceled for player: " + targetPlayer.getName());
+                    //Bukkit.getLogger().info("Task canceled for player: " + targetPlayer.getName());
                     return;
                 }
 
                 // Update the GUI
                 populateGui();
-                Bukkit.getLogger().info("GUI updated for player: " + targetPlayer.getName());
+                //Bukkit.getLogger().info("GUI updated for player: " + targetPlayer.getName());
             }
         };
 

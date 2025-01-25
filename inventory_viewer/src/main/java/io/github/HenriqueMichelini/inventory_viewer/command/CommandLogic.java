@@ -20,7 +20,7 @@ public class CommandLogic implements CommandExecutor {
         Player player = (Player) commandSender;
 
         if (args.length < 1) {
-            player.sendMessage("Usage: /inventoryviewer <player>");
+            player.sendMessage("Usage: /inventoryviewer player");
             return false;
         }
 
@@ -37,10 +37,8 @@ public class CommandLogic implements CommandExecutor {
             return false;
         }
 
-        // Create the inventory GUI for the target player
         InventoryGui inventoryGui = new InventoryGui(targetPlayer);
 
-        // Open the GUI for the command sender
         inventoryGui.getGui().open(player);
         return true;
     }
