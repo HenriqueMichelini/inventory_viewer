@@ -1,6 +1,6 @@
 name: inventory_viewer
 version: '1.0-SNAPSHOT'
-main: io.github.HenriqueMichelini.inventory_viewer.Inventory_viewer
+main: io.github.HenriqueMichelini.inventory_viewer.InventoryViewer
 api-version: '1.21'
 commands:
   inventoryviewer:

@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/inventory_viewer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/inventory_viewer.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/inventory_viewer.test.iml" filepath="$PROJECT_DIR$/.idea/modules/inventory_viewer.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/io.github.HenriqueMichelini.inventory_viewer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/io.github.HenriqueMichelini.inventory_viewer.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/io.github.HenriqueMichelini.inventory_viewer.test.iml" filepath="$PROJECT_DIR$/.idea/modules/io.github.HenriqueMichelini.inventory_viewer.test.iml" />
     </modules>
   </component>
 </project>
