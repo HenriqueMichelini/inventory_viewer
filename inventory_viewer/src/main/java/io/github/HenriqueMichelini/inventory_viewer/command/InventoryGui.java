@@ -1,13 +1,16 @@
 package io.github.HenriqueMichelini.inventory_viewer.command;
 
+import dev.triumphteam.gui.builder.item.ItemBuilder;
 import dev.triumphteam.gui.guis.Gui;
 import dev.triumphteam.gui.guis.GuiItem;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Objects;
@@ -53,8 +56,34 @@ public class InventoryGui {
                 }
             }
 
+            int playerHealthAmount = Math.max(1, (int) targetPlayer.getHealth()); // Prevent zero health
+            int playerFoodLevelAmount = Math.max(1, targetPlayer.getFoodLevel()); // Prevent zero food level
+            int playerLevelAmount = Math.max(1, targetPlayer.getLevel()); // Prevent zero level
+            String playerName = targetPlayer.getName();
+
+            ItemStack healthItem = new ItemStack(Material.ENCHANTED_GOLDEN_APPLE, playerHealthAmount);
+            ItemMeta healthMeta = healthItem.getItemMeta();
+            healthMeta.displayName(Component.text(playerName.concat("'s Health")).color(TextColor.color(0xFFFFFF))); // Set to default white color
+            healthItem.setItemMeta(healthMeta);
+            GuiItem health = new GuiItem(healthItem);
+            gui.setItem(42, health);
+
+            ItemStack foodItem = new ItemStack(Material.MELON_SLICE, playerFoodLevelAmount);
+            ItemMeta foodMeta = foodItem.getItemMeta();
+            foodMeta.displayName(Component.text(playerName.concat("'s Food level")).color(TextColor.color(0xFFFFFF))); // Set to default white color
+            foodItem.setItemMeta(foodMeta);
+            GuiItem food = new GuiItem(foodItem);
+            gui.setItem(43, food);
+
+            ItemStack levelItem = new ItemStack(Material.EXPERIENCE_BOTTLE, playerLevelAmount);
+            ItemMeta levelMeta = levelItem.getItemMeta();
+            levelMeta.displayName(Component.text(playerName.concat("'s Experience level")).color(TextColor.color(0xFFFFFF))); // Set to default white color
+            levelItem.setItemMeta(levelMeta);
+            GuiItem level = new GuiItem(levelItem);
+            gui.setItem(44, level);
+
             // Refresh the GUI after populating
-            gui.update(); // Check if your GUI library provides an update method
+            gui.update();
         } catch (Exception e) {
             Bukkit.getLogger().warning("Error in populateGui: " + e.getMessage());
             e.printStackTrace();
