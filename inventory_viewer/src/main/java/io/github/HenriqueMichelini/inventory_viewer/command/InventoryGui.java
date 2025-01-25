@@ -1,6 +1,5 @@
 package io.github.HenriqueMichelini.inventory_viewer.command;
 
-import dev.triumphteam.gui.builder.item.ItemBuilder;
 import dev.triumphteam.gui.guis.Gui;
 import dev.triumphteam.gui.guis.GuiItem;
 import net.kyori.adventure.text.Component;
@@ -37,7 +36,6 @@ public class InventoryGui {
     }
 
     private void populateGui() {
-        try {
             Inventory playerInventory = targetPlayer.getInventory();
 
             // Loop through all slots in the player's inventory
@@ -79,10 +77,6 @@ public class InventoryGui {
             gui.setItem(44, level);
 
             gui.update();
-        } catch (Exception e) {
-            Bukkit.getLogger().warning("Error in populateGui: " + e.getMessage());
-            e.printStackTrace();
-        }
     }
 
 
