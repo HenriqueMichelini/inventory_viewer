@@ -23,7 +23,7 @@ You can use the following commands to access the inventory viewer:
 
 ### Permissions
 Ensure players have the required permissions to use the commands:
-- `inventoryviewer.view`: Grants access to view other players' inventories.
+- `inventoryviewer.use`: Grants access to view other players' inventories.
 
 ---
 
