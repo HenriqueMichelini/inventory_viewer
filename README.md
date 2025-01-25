@@ -8,6 +8,7 @@ The Inventory Viewer plugin allows players to view other players' inventories in
 
 - **Inventory Viewing**: Open and browse other players' inventories seamlessly.
 - **Player Stats**: See the health points, food level, and experience level of the targeted player.
+- **Real Time Updating**: The GUI updates every 10 ticks (0.5 seconds).
 - **Easy Commands**: Multiple command aliases for convenience.
 
 ---
@@ -47,22 +48,6 @@ This command will open a GUI showing Steve's inventory, health points, food leve
 
 3. **Error Handling**:
    - If the player is offline or the command is used incorrectly, the plugin will notify you with an error message.
-
----
-
-## Installation
-
-1. Download the latest version of the Inventory Viewer plugin.
-2. Place the `.jar` file in your server's `plugins` folder.
-3. Restart your server to load the plugin.
-4. Ensure the necessary permissions are set in your permissions manager.
-
----
-
-## Future Features
-
-- **Interactive GUI**: Clickable items to perform actions or get additional details.
-- **Real-Time Updates**: Live stats for health, food, and experience.
 
 ---
 
